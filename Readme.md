@@ -1,3 +1,5 @@
+## To View Project:
+
 1. Install Node.JS http server
     * ``` npm install http-server -g ```
 2. Clone Repository to local hard drive location
