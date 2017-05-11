@@ -1,15 +1,14 @@
-// Code goes here
-(function() {
+(function () {
 
   var app = angular.module('gitHubViewer', []);
 
-  var MainCtrl = function(
+  var MainCtrl = function (
     $scope, github, $interval,
     $log, $anchorScroll, $location) {
 
     $scope.message = "GitHub Profile Viewer";
 
-    $scope.search = function(username) {
+    $scope.search = function (username) {
       if (username === undefined) {
         return onError();
       }
@@ -24,20 +23,20 @@
       }
     };
 
-    var onUserComplete = function(data) {
+    var onUserComplete = function (data) {
       $scope.user = data;
 
       github.getRepos($scope.user)
         .then(onRepos, onError);
     };
 
-    var onRepos = function(data) {
+    var onRepos = function (data) {
       $scope.repos = data;
       $location.hash('userDetails');
       $anchorScroll();
     };
 
-    var decrementCountdown = function() {
+    var decrementCountdown = function () {
       $scope.countdown -= 1;
 
       if ($scope.countdown < 1) {
@@ -45,12 +44,12 @@
       }
     };
 
-    var onError = function(reason) {
+    var onError = function (reason) {
       $scope.error = "Could not fetch data.";
     };
 
     var countdownInterval = null;
-    var startCountdown = function() {
+    var startCountdown = function () {
       countdownInterval = $interval(decrementCountdown, 1000, $scope.countdown);
     };
 

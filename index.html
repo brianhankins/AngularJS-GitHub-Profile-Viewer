@@ -3,24 +3,16 @@
 
 <head>
   <script data-require="angular.js@*" data-semver="4.0.0" src="https://code.angularjs.org/latest/angular.min.js"></script>
+  <script data-require="angular-route@*" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular-route.js"></script>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js"></script>
+  <script src="app.js"></script>
+  <script src="MainController.js"></script>
   <script src="github.js"></script>
 </head>
 
-<body ng-controller="MainCtrl">
-  <h1>{{ message }}</h1>
-
-  <div>{{ error }}</div>
-
-  Automatically Searching in... {{ countdown }} seconds
-  <form name="searchUser" ng-submit="search(username)">
-    <input type="search" placeholder="Username to find" ng-model="username" required />
-    <input type="submit" value="Search" />
-  </form>
-
-  <div ng-include="'userdetails.html'" ng-show="user"></div>
-  
+<body>
+  <h1>Github Profile Viewer</h1>
+  <div ng-view></div>
 </body>
 
 </html>
