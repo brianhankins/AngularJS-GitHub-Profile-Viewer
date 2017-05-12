@@ -1,0 +1,7 @@
+1. need to get github username sometimes referred to as login
+2. need repo name
+3. Going to need 2 http calls to get data
+    - 1 call to get the details of the repo clicked
+        + display total number of issues open of repo (open issues count)
+    - 1 call to /contributors 
+        + list names and images of each contributor
